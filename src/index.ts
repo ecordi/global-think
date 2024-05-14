@@ -2,9 +2,9 @@ import express from "express";
 import path from "path";
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
-import db from "../Config/db.config";
-import { router } from "../Routes/users.routes";
-import { pageNotFound } from "../Controllers/error.controller";
+import db from "./Config/db.config";
+import { router } from "./Routes/users.routes";
+import { pageNotFound } from "./Controllers/error.controller";
 import dotenv from "dotenv";
 
 dotenv.config();

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon ./src/Server/app.ts",
-    "dev": "nodemon ./src/Server/app.ts",
+    "start": "nodemon ./src/index.ts",
+    "dev": "nodemon ./src/index.ts",
     "build": "rimraf dist && tsc"
   },
   "keywords": [],
