@@ -1,5 +1,5 @@
 {
-    "version": ,
+    "version": 2,
     "builds": [
         {
             "src": "dist/server/app.ts",
@@ -11,6 +11,6 @@
         {
             "src": "/(.*)",
             "dest": "dist/server/app.ts"
-        }
-    ]
+ }
+]
 }
