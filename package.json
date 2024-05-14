@@ -7,8 +7,10 @@
     "test": "jest",
     "start": "nodemon ./src/Server/app.ts",
     "dev": "nodemon ./src/Server/app.ts",
-    "build": "npm run build --output public"
+    "build": "npm run build-app"
+
   },
+  "build-app": "tsc && cp -r src/public dist/",
   "keywords": [],
   "author": "",
   "license": "ISC",
