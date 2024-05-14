@@ -21,7 +21,7 @@
         "**/.jsdocs.json": true,
         "**/.gitignore": true,
         "**/.babelrc": true,
-        "**/versel.json": true,
+        //"**/versel.json": true,
         "**/package-lock.json": true,
         "**/.gitlab-ci.yml": true,
         "**/tsconfig.json": true,
