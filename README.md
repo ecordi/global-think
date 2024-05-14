@@ -40,6 +40,8 @@ Implementa un manejo adecuado de errores para todas las operaciones. Proporciona
 
 ### 6. Documentación
 
+[http://localhost:3000/api/users/swagger-ui]
+
 Documenta la API utilizando comentarios en el código o una herramienta como Swagger. Proporciona ejemplos de uso para cada endpoint.
 
 ### 7. Pruebas Unitarias

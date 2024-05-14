@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "nodemon ./src/Server/app.ts",
     "dev": "nodemon ./src/Server/app.ts",
-    "build": "tsc --project tsconfig.json"
+    "build": "npm build --output public"
   },
   "keywords": [],
   "author": "",
