@@ -7,7 +7,7 @@ var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 var swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 var swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
-var db_config_1 = require("../Config/db.config");
+var db_config_1 = __importDefault(require("../Config/db.config"));
 var users_routes_1 = require("../Routes/users.routes");
 var error_controller_1 = require("../Controllers/error.controller");
 var dotenv_1 = __importDefault(require("dotenv"));
@@ -20,21 +20,19 @@ app.use(express_1.default.urlencoded({ extended: true }));
 // Configuración de Swagger
 var swaggerOptions = {
     swaggerDefinition: {
-        openapi: '3.0.0',
+        openapi: "3.0.0",
         info: {
-            title: 'Backend Global Think',
-            version: '1.0.0',
-            description: 'Documentación técnica de cómo usar el API de Usuarios',
+            title: "Backend Global Think",
+            version: "1.0.0",
+            description: "Documentación técnica de cómo usar el API de Usuarios",
         },
-        servers: [
-            { url: 'http://localhost:3000' }
-        ],
+        servers: [{ url: "http://localhost:3000" }],
         components: {
             securitySchemes: {
                 bearerAuth: {
-                    type: 'http',
-                    scheme: 'bearer',
-                    bearerFormat: 'JWT',
+                    type: "http",
+                    scheme: "bearer",
+                    bearerFormat: "JWT",
                 },
             },
         },
@@ -42,11 +40,13 @@ var swaggerOptions = {
     apis: [path_1.default.join(__dirname, "../Routes/*.ts")], // Ruta del archivo de rutas
 };
 var swaggerDocs = (0, swagger_jsdoc_1.default)(swaggerOptions);
-app.use('/api/users/swagger-ui', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDocs));
+app.use("/api/users/swagger-ui", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDocs));
 // Rutas
-app.use('/api/users', users_routes_1.router);
-app.use('/', error_controller_1.pageNotFound);
+app.use("/api/users", users_routes_1.router);
+app.use("/", error_controller_1.pageNotFound);
 // Conexión a la base de datos y luego iniciar el servidor
-db_config_1.db.then(function () {
-    app.listen(port, function () { return console.log("Server listening on http://localhost:".concat(port, "/api/users")); });
+(0, db_config_1.default)().then(function () {
+    app.listen(port, function () {
+        return console.log("Server listening on http://localhost:".concat(port, "/api/users"));
+    });
 });

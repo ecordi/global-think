@@ -2,9 +2,9 @@ import express from "express";
 import path from "path";
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
-import { db } from "./Config/db.config";
-import { router } from "./Routes/users.routes";
-import { pageNotFound } from "./Controllers/error.controller";
+import db from "../Config/db.config";
+import { router } from "../Routes/users.routes";
+import { pageNotFound } from "../Controllers/error.controller";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -47,7 +47,7 @@ app.use("/api/users", router);
 app.use("/", pageNotFound);
 
 // Conexión a la base de datos y luego iniciar el servidor
-db.then(() => {
+db().then(() => {
   app.listen(port, () =>
     console.log(`Server listening on http://localhost:${port}/api/users`)
   );
