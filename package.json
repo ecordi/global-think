@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "nodemon ./src/Server/app.ts",
     "dev": "nodemon ./src/Server/app.ts",
-    "build": "npm build --output public"
+    "build": "npm run build --output public"
   },
   "keywords": [],
   "author": "",
