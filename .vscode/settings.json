@@ -1,0 +1,310 @@
+{
+    // Configuracion del editor del IDE
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+    // Archivos de configuración ocultos
+    "files.exclude": {
+        "**/.env": false,
+        "**/.env.example": false,
+        "**/.eslintrc": true,
+        "**/.prettierrc": true,
+        "**/.prettierignore": true,
+        "**/.eslintignore": true,
+        "**/commitlint.config.js": true,
+        "**/rollup.config.js": true,
+        "**/jsconfig.json": true,
+        "**/apidoc.json": true,
+        "**/.jsdocs.json": true,
+        //"**/.gitignore": true,
+        "**/.babelrc": true,
+        "**/.mocharc.yaml": true,
+        //"**/package-lock.json": true,
+        "**/.gitlab-ci.yml": true,
+        //"**/tsconfig.json": true,
+        //"**/.husky": true,
+        "**/node_modules": true
+    },
+    // Re-asociacion de extensión con lenguajes de programación
+    "files.associations": {
+        "*.jsdoc": "javascript"
+    },
+
+    // Configuración restringida a cada lenguaje especificado
+    "[javascript]": {
+        "editor.showUnused": true,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "javascript.suggest.autoImports": true,
+    "javascript.suggest.includeCompletionsForImportStatements": true,
+    "javascript.suggestionActions.enabled": false,
+    "javascript.validate.enable": false,
+
+    // Spellchecker
+    "cSpell.enabled": true,
+    "cSpell.language": "en,es",
+    "cSpell.allowCompoundWords": true,
+    "cSpell.diagnosticLevel": "Error",
+    "cSpell.suggestionMenuType": "quickFix",
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "package.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        ".env",
+        ".env.example",
+        ".eslintrc",
+        ".prettierrc",
+        ".prettierignore",
+        ".eslintignore",
+        "commitlint.config.js",
+        "rollup.config.js",
+        "jsconfig.json",
+        ".jsdocs.json",
+        ".gitignore",
+        ".babelrc",
+        ".mocharc.yaml",
+        ".husky",
+    ],
+    "cSpell.customDictionaries": {
+        "local_dictionay": {
+            "name": "local_dictionay",
+            "path": "${workspaceFolder}/.vscode/.cspell/local_dictionay.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    },
+    "cSpell.words": [
+        "autenticación",
+        "GENERATINGPURCHARSE",
+        "loggly",
+        "MCMM",
+        "RTYAZ"
+    ],
+
+    // Prettier
+    "prettier.enable": true,
+    "prettier.requireConfig": true,
+    "prettier.ignorePath": ".prettierignore",
+    "prettier.configPath": ".prettierrc",
+    "prettier.useEditorConfig":false,
+
+    // Branch Warning
+    "branchwarnings.msgTooltip": "Esta rama se ha marcado como protegida, cree su propia rama para trabajar",
+    "branchwarnings.suppressPopup": false,
+    "branchwarnings.protectedBranches": [
+        "main",
+        "master",
+        "develop"
+    ],
+
+    // Gitignore
+    "gitignore.cacheExpirationInterval": 3600,
+    
+    // ToDo's Tree
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "bookmark",
+        "type": "tag",
+        "foreground": "#FFFFFF",
+        "background": "#000000",
+        "opacity": 100,
+        "iconColour": "#FFFFFF"
+    },
+    "todo-tree.general.tags": [
+        "TODO: ",
+        "FIXME: ",
+        "WARN: ",
+        "UPGRADE: ",
+        "ASK: ",
+        "DEPRECATED: "
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "TODO: ": {
+            "icon": "check-circle",
+            "type": "tag",
+            "iconColour": "#caf0f8",
+            "foreground": "#caf0f8",
+            "background": "#023e8a",
+            
+        },
+        "FIXME: ": {
+            "icon": "bug",
+            "type": "whole-line",
+            "iconColour": "#e5383b",
+            "foreground": "#e5383b",
+            "background": "#660708",
+        },
+        "WARN: ": {
+            "icon": "alert",
+            "type": "line",
+            "iconColour": "#ff6d00",
+            "foreground": "#ffea00",
+            "background": "#ff6d00",
+        },
+        "UPGRADE: ": {
+            "icon": "arrow-up",
+            "type": "tag-and-subTag",
+            "iconColour": "#ffea00",
+            "foreground": "#bf3100",
+            "background": "#ffea00",
+        },
+        "ASK: ": {
+            "icon": "question",
+            "type": "tag",
+            "iconColour": "#c8b8db",
+            "foreground": "#c8b8db",
+            "background": "#502f4c",
+        },
+        "DEPRECATED: ":{
+            "icon": "x",
+            "type": "tag",
+            "iconColour": "#dcdcdd",
+            "foreground": "#dcdcdd",
+            "background": "#4c5c68",
+        },
+    },
+
+
+    // Commit Message Editor
+    "commit-message-editor.view.defaultView": "form",
+    "commit-message-editor.view.fullWidth": false,
+    "commit-message-editor.view.showRecentCommits": false,
+    "commit-message-editor.view.saveAndClose": true,
+    "commit-message-editor.staticTemplate": [
+        "feat(scope): Short description",
+        "",
+        "Message body",
+        "",
+        "Cambio de version (SI/NO);",
+        "",
+        "Message footer"
+    ],
+    "commit-message-editor.dynamicTemplate": [
+        "{type}{scope}: {description}",
+        "",
+        "{body}",
+        "",
+        "{breaking_change}{footer}"
+    ],
+    "commit-message-editor.tokens": [
+        {
+            "label": "Tipo",
+            "name": "type",
+            "type": "enum",
+            "description": "Tipo de cambio",
+            "options": [
+                {
+                    "label": "---",
+                    "value": ""
+                },
+                {
+                    "label": "Aplicacion",
+                    "value": "core",
+                    "description": "Cambios en la estructura principal del proyecto"
+                },
+                {
+                    "label": "Integracion Continua",
+                    "value": "ci",
+                    "description": "Cambios en nuestros archivos de configuración y scripts de CI"
+                },
+                {
+                    "label": "Documentacion",
+                    "value": "docs",
+                    "description": "Solo la documentación cambia"
+                },
+                {
+                    "label": "Funcionalidad",
+                    "value": "feat",
+                    "description": "Una nueva funcionalidad"
+                },
+                {
+                    "label": "En proceso",
+                    "value": "process",
+                    "description": "Realizar modificaciones de una funcionalidad no deployada"
+                },
+                {
+                    "label": "Correccion de errores",
+                    "value": "fix",
+                    "description": "Una correccion de un error"
+                },
+                {
+                    "label": "Refactor",
+                    "value": "refactor",
+                    "description": "Un cambio de código que no corrige un error ni agrega una función."
+                },
+                {
+                    "label": "Vuelta atras",
+                    "value": "revert",
+                    "description": "Rollback (vuelta atras) de la ultima implementación"
+                },
+                {
+                    "label": "Testing",
+                    "value": "test",
+                    "description": "Agregar pruebas faltantes o corregir pruebas existentes"
+                }
+            ]
+        },
+        {
+            "label": "Alcance",
+            "name": "scope",
+            "type": "text",
+            "description": "información adicional referenciando en que parte ocurre el cambio",
+            "prefix": "(",
+            "suffix": ")",
+            "maxLength": 49
+        },
+        {
+            "label": "Descripción Corta",
+            "name": "description",
+            "type": "text",
+            "description": "Breve descripción en la línea de asunto.",
+            "maxLength": 150
+        },
+        {
+            "label": "Descripción larga",
+            "name": "body",
+            "type": "text",
+            "description": "Detalles adicionales para aclarar el cambio (opcional)",
+            "maxLength": 150,
+            "maxLines": 10,
+            "multiline": true,
+            "lines": 5
+        },
+        {
+            "label": "Cambio de version",
+            "name": "breaking_change",
+            "type": "boolean",
+            "value": "Cambio de version: ",
+            "default": false
+        },
+        {
+            "label": "Footer",
+            "name": "footer",
+            "type": "text",
+            "description": "Cierre o advertencias del cambios (opcional)",
+            "maxLength": 100,
+            "maxLines": 1,
+            "multiline": true,
+            "lines": 1
+        }
+    ],
+
+    // Mocha Explorer
+    "mochaExplorer.files": "src/**/test/**/*.test.js",
+    "mochaExplorer.require":"@babel/register",
+    "mochaExplorer.autoload": false,
+
+    // Mocha
+    "mocha.enabled": true,
+    "mocha.glob": "src/**/test/**/*.test.js",
+    "mocha.requires": [
+        "@babel/register"
+    ],
+}
