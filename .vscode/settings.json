@@ -8,21 +8,25 @@
     },
     // Archivos de configuración ocultos
     "files.exclude": {
-        "**/.env": false,
+        "**/.env": true,
         "**/.eslintrc": true,
         "**/.prettierrc": true,
         "**/.prettierignore": true,
         "**/.eslintignore": true,       
         "**/jsconfig.json": true,
-        //"**/.gitignore": true,
-        //"**/.gitignore": true,
-       // "**/.babelrc": true,
-        //"**/vercel.json": true,
+        "**/.gitignore": true,
+        "**/.gitignore": true,
+       "**/.babelrc": true,
+        "**/vercel.json": true,
         "**/package-lock.json": true,
         "**/.gitlab-ci.yml": true,
-        //"**/tsconfig.json": true,
+        "**/tsconfig.json": true,
         "**/.husky": true,
-        "**/node_modules": true
+        "**/node_modules": true,
+        "**/src/jest.config.ts": true,
+        "**/src/babel.config.ts": true,
+        "**/dist": true,
+        "**.vercel": true
     },
     // Re-asociacion de extensión con lenguajes de programación
     "files.associations": {

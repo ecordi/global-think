@@ -22,9 +22,9 @@ const swaggerOptions = {
     info: {
       title: "Backend Global Think",
       version: "1.0.0",
-      description: "Documentación técnica de cómo usar el API de Usuarios",
+      description: "Documentación técnica de cómo usar el API de Usuarios"
     },
-    servers: [{ url: "http://localhost:3000" }],
+    servers: [{ url: "http://localhost:3000" }],      
   },
   apis: [path.join(__dirname, "./Routes/*.ts")], // Ruta del archivo de rutas
 };
