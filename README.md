@@ -11,10 +11,10 @@ El objetivo es poder cumplimentar con la prueba tecnica
 
 ### 1. Clonado
 
-# 1.1 Clone el proyecto 
-# 1.2 Descomprimalo 
+#### 1.1 Clone el proyecto 
+#### 1.2 Descomprimalo 
 
-## 2 Inicializacion
+##### 2 Inicializacion
 
 #2.1 En la misma carpeta donde descomprimio pulse sin soltar CTRL+SHIT+CLICK DERECHO y pulse sobre terminal
 #2.2 En la terminal verificando estar unicado sobre ##SUDIRECTORIO#/global-think ejecute el siguiente comando
