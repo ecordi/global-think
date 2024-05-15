@@ -32,23 +32,23 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api/users/swagger-ui", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
-// app.get("/", (req, res)=>{
-//   const htmlResponse =`<!DOCTYPE html>
-//   <html>
-//   <head>
-//       <meta charset='utf-8'>
-//       <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-//       <title>My App</title>
-//       <meta name='viewport' content='width=device-width, initial-scale=1'>
-//       <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-//       <script src='main.js'></script>
-//   </head>
-//   <body>
-//       <h3>Prueba Tecnica Eugenio Cordi By Global</h3>
-//   </body>
-//   </html>`;
-//   res.send(htmlResponse);
-// })
+app.get("/", (req, res)=>{
+  const htmlResponse =`<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset='utf-8'>
+      <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+      <title>My App</title>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+      <script src='main.js'></script>
+  </head>
+  <body>
+      <h3>Prueba Tecnica Eugenio Cordi By Global</h3>
+  </body>
+  </html>`;
+  res.send(htmlResponse);
+})
 // Rutas
 app.use("/api/users", router);
 //app.use("/", pageNotFound);
