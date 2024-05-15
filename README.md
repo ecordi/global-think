@@ -11,8 +11,8 @@ El objetivo es poder cumplimentar con la prueba tecnica
 
 ### 1. Clonado
 
-## 1.1 Clone el proyecto 
-## 1.2 Descomprimalo 
+# 1.1 Clone el proyecto 
+# 1.2 Descomprimalo 
 
 ## 2 Inicializacion
 
