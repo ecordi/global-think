@@ -1,4 +1,4 @@
-# GlobalThink Technology S.A.
+# GlobalThink Technology
 # Prueba Técnica: Desarrollo Backend con TypeScript y Node.js
 
 Este repositorio contiene el código fuente de una API REST para gestionar usuarios, desarrollada como parte de una prueba técnica de desarrollo backend utilizando TypeScript y Node.js.
