@@ -56,6 +56,6 @@ app.use("/api/users", router);
 // Conexión a la base de datos y luego iniciar el servidor
 db.then(() => {
   app.listen(port, () =>
-    console.log(`Server listening on http://localhost:${port}/api/users`)
+    console.log(`Server listening on http://localhost:${port}`)
   );
 });
