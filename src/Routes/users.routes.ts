@@ -6,14 +6,9 @@ import express from 'express';
 
 
 export const router = express.Router()
-// holds the registered dependencies and manages their creation and resolution
 const controller = diContainer.get<UserController>(TYPES.controller);
-
 const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, filterChecker]; // should they combined
 
-// sub-routes after /api/users
-
-// Documentación de Swagger sin cambiar el código original
 /**
  * @swagger
  * tags:
@@ -23,7 +18,7 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
 
 /**
  * @swagger
- * /api/users/pagination/{page}/{limit}:
+ * /api/users:
  *   get:
  *     summary: Obtener usuarios paginados
  *     tags: [Users]
@@ -41,34 +36,6 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
  *           type: number
  *           
  *         description: Campo para ordenar los usuarios
- *     responses:
- *       '200':
- *         description: OK
- */
-
-/**
- * @swagger
- * /api/users:
- *   post:
- *     summary: Agregar un nuevo usuario
- *     tags: [Users]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/User'
- *     responses:
- *       '201':
- *         description: Creado
- */
-
-/**
- * @swagger
- * /api/users:
- *   get:
- *     summary: Obtener todos los usuarios
- *     tags: [Users]
  *     responses:
  *       '200':
  *         description: OK
@@ -95,9 +62,39 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
 
 /**
  * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Obtener todos los usuarios
+ *     tags: [Users]
+ *     responses:
+ *       '200':
+ *         description: OK
+ */
+
+/**
+ * @swagger
+ * /api/users:
+ *   post:
+ *     summary: Agregar un nuevo usuario
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       '201':
+ *         description: Creado
+ */
+
+/* @swagger
+
+/**
+ * @swagger
  * /api/users/{id}:
  *   put:
- *     summary: Actualizar un usuario
+ *     summary: Actualizar un usuario por ID
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -105,17 +102,17 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
  *         required: true
  *         schema:
  *           type: string
+ *         description: ID del usuario
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *            
+ *             $ref: '#/components/schemas/User'
  *     responses:
  *       '200':
- *         description: OK
+ *         description: Usuario actualizado exitosamente
  */
-
 /**
  * @swagger
  * /api/users/{id}:
@@ -133,10 +130,12 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
  *       content:
  *         application/json:
  *           schema:
-
+ *             $ref: '#/components/schemas/User'
  *     responses:
  *       '200':
  *         description: OK
+ *       '404':
+ *         description: Usuario no encontrado
  */
 
 /**
@@ -174,27 +173,10 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
  *         - edad
  *         - correo
  */
-/**
- * @swagger
- * /api/users/search:
- *   get:
- *     summary: Buscar usuarios
- *     tags: [Users]
- *     parameters:
- *       - in: query
- *         name: q
- *         schema:
- *           type: string
- *         description: Cadena de consulta para la búsqueda
- *     responses:
- *       '200':
- *         description: OK
- */
-router.get('/pagination/:page/:limit', middlewares, controller.getUsers);
-router.post('/', controller.adduser) // the same URL can have multiple HTTP methods
-router.get('/', controller.getUsers)
-router.get('/search',middlewares, controller.search)
-router.get('/:id', controller.getAUser) // query parametres uses ?=id 
+
+router.get('/', middlewares, controller.getUsers);
+router.post('/',middlewares, controller.addUser)
+router.get('/:id', controller.getUserById)
 router.put('/:id', controller.updateUser)
 router.patch('/:id', controller.patchUser)
 router.delete('/:id', controller.deleteUser)

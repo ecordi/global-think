@@ -1,14 +1,13 @@
 
 import { paginate } from 'mongoose-paginate-v2';
 import {  IUser } from '../Interfaces/IUser'
-import { Document, Types } from 'mongoose' // handles db connections, transactions, sessions
+import { Document, Types } from 'mongoose' 
 
 export const TYPES = {
     service: Symbol.for("UserService"),
     controller: Symbol.for("userController"),
 }
 
-// not directly related with DI, custom type alias
 type CommonType = Document<unknown, any, IUser> & IUser & {
     _id: Types.ObjectId;
   }

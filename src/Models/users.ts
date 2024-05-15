@@ -6,7 +6,7 @@ import { IUser } from "../Interfaces/IUser";
 export const UserschemaValidate = Joi.object({
   nombre: Joi.string().required(),
   correo: Joi.string().required(),
-  edad: Joi.number().required(),
+  edad:Joi.number().required().default(0).min(0).max(Infinity),
 });
 
 //Postschema
