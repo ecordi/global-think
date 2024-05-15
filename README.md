@@ -28,26 +28,13 @@ a posterior
 npm start
 ````
 
-### 2. API REST de Usuarios
 
-Diseña una API REST para gestionar usuarios con las siguientes operaciones:
-
-- Crear un nuevo usuario.
-- Obtener la lista de usuarios.
-- Obtener los detalles de un usuario por su ID.
-- Actualizar la información de un usuario por su ID.
-- Eliminar un usuario por su ID.
-- Utiliza un almacenamiento en memoria para los datos de usuario.
-
-### 1. Código Fuente
-
-- **Repositorio Público:** [Enlace al Repositorio](#)
-### 2. Documentación
+### 3. Documentación
 
 Se incluye cualquier documentación necesaria para comprender y ejecutar el proyecto.
 [text](http://localhost:3000/api/users/swagger-ui/)
 
-### 3. Pruebas Unitarias
+### 4. Pruebas Unitarias
 
 Se incluyen los scripts y resultados de las pruebas unitarias realizadas.
 Ejecute para obtener la cobertura
