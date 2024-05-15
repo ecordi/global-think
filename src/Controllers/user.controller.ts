@@ -7,6 +7,7 @@ import { NextFunction } from "express-serve-static-core";
 import { isValidObjectId } from "mongoose";
 @injectable()
 class UserController {
+
   private service: UserService;
 
   constructor(@inject(TYPES.service) service: UserService) {
@@ -70,7 +71,12 @@ class UserController {
         correo: req.body.correo,
         edad: req.body.edad,
       };
+      const correo= data.correo;
+      const existingUser = await User.findOne({ correo });
 
+      if (existingUser) {
+        return res.status(400).json({ message: 'El correo electrónico ya está en uso.' });
+      }
       const { error, value } = UserschemaValidate.validate(data);
 
       if (!error) {
@@ -90,6 +96,12 @@ class UserController {
       const data = req.body;
       if (!isValidObjectId(id)) {
         return res.status(400).json({ message: "ID de usuario no válido" });
+      }
+      const correo= data.correo;
+      const existingUser = await User.findOne({ correo });
+
+      if (existingUser) {
+        return res.status(400).json({ message: 'El correo electrónico ya está en uso.' });
       }
       const userUpdated = await this.service.updateUser(id, req.body);
       if (userUpdated.success) {
@@ -137,7 +149,6 @@ class UserController {
   patchUser = async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id;
     const data = req.body;
-
     try {
       if (!isValidObjectId(id)) {
         return res.status(400).json({ message: "ID de usuario no válido" });

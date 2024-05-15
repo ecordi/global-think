@@ -1,5 +1,4 @@
 
-import { paginate } from 'mongoose-paginate-v2';
 import {  IUser } from '../Interfaces/IUser'
 import { Document, Types } from 'mongoose' 
 

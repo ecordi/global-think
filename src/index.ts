@@ -2,15 +2,14 @@ import express from "express";
 import path from "path";
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
-import { db } from "./Config/db.config";
+import db ,{ createSampleUsers } from "./Config/db.config";
 import { router } from "./Routes/users.routes";
-import { pageNotFound } from "./Controllers/error.controller";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
-const port =3001|| 5000;
+const port = process.env.PORT || 5000;
 
 // Middleware para parsear JSON y datos de formulario
 app.use(express.json());
@@ -32,8 +31,9 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api/users/swagger-ui", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
-app.get("/", (req, res)=>{
-  const htmlResponse =`<!DOCTYPE html>
+app.use("/api/users", router);
+app.get("/", (req, res) => {
+  const htmlResponse = `<!DOCTYPE html>
   <html>
   <head>
       <meta charset='utf-8'>
@@ -48,14 +48,16 @@ app.get("/", (req, res)=>{
   </body>
   </html>`;
   res.send(htmlResponse);
-})
+});
 // Rutas
-app.use("/api/users", router);
 //app.use("/", pageNotFound);
-
 // Conexión a la base de datos y luego iniciar el servidor
-db.then(() => {
+db().then(() => {
+ createSampleUsers().then(() => {
   app.listen(port, () =>
-    console.log(`Server listening on http://localhost:${port}`)
+    console.log(
+      `Server listening on http://localhost:${port}/api/users/swagger-ui/`
+    )
   );
+   });
 });

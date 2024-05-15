@@ -15,7 +15,6 @@ class UserService {
     } catch (error) {
       return { success: false, error };
     }
-    
   }
 
   async getUserById(id: string) {
@@ -63,7 +62,6 @@ class UserService {
   async deleteUser(id: string) {
   try {
     const deletedUser = await User.findByIdAndDelete(id);
-    console.log("🚀 ~ file: user.service.ts:84 ~ UserService ~ deletedUser:", deletedUser)
     if (deletedUser===null) {
       throw new Error(
         "No se pudo eliminar el usuario. Es posible que el usuario no exista."
