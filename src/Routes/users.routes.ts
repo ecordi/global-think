@@ -1,13 +1,13 @@
 import { UserController } from '../Controllers/user.controller'
 import { diContainer } from "../DI/iversify.config";
 import { TYPES } from "../DI/types";
-import { pageIndexChecker, sortParamChecker, orderByParamChecker, filterChecker } from "../Middlewares/param.validator";
+//import { pageIndexChecker, sortParamChecker, orderByParamChecker, filterChecker } from "../Middlewares/param.validator";
 import express from 'express';
 
 
 export const router = express.Router()
 const controller = diContainer.get<UserController>(TYPES.controller);
-const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, filterChecker]; // should they combined
+//onst middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, filterChecker]; // should they combined
 
 /**
  * @swagger
@@ -28,13 +28,11 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
  *         schema:
  *           type: integer
  *           example: null
- *         description: Número de pa
- *         
+ *         description: Número de pagina
  *       - in: query
  *         name: limit
  *         schema:
- *           type: number
- *           
+ *           type: number           
  *         description: Campo para ordenar los usuarios
  *     responses:
  *       '200':
@@ -174,8 +172,8 @@ const middlewares = [pageIndexChecker, sortParamChecker, orderByParamChecker, fi
  *         - correo
  */
 
-router.get('/', middlewares, controller.getUsers);
-router.post('/',middlewares, controller.addUser)
+router.get('/', controller.getUsers);
+router.post('/', controller.addUser)
 router.get('/:id', controller.getUserById)
 router.put('/:id', controller.updateUser)
 router.patch('/:id', controller.patchUser)
